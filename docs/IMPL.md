@@ -62,7 +62,7 @@ layout that all subsequent phases build on. No user-facing features yet.
   - `internal/git/` -- Git subprocess helpers.
   - `internal/color/` -- ANSI escape code constants and helpers.
   - `internal/errlog/` -- Error logging for experimental features (Phase 2+).
-- [ ] **0.5: Add testable entry point.** Create a
+- [x] **0.5: Add testable entry point.** Create a
       `Run(in io.Reader, out io.Writer, errOut io.Writer, cfg *config.Config) error`
       function in an internal package that the Cobra root command calls with
       `cmd.InOrStdin()` and `cmd.OutOrStdout()`. This is the core function that

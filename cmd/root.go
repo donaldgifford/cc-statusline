@@ -5,6 +5,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
+	"github.com/donaldgifford/cc-statusline/internal/statusline"
 )
 
 var cfgFile string
@@ -14,6 +16,10 @@ var rootCmd = &cobra.Command{
 	Use:   "cc-statusline",
 	Short: "A statusline for Claude Code",
 	Long:  "cc-statusline reads session data from Claude Code via stdin and renders a configurable statusline.",
+	RunE: func(cmd *cobra.Command, _ []string) error {
+		return statusline.Run(cmd.InOrStdin(), cmd.OutOrStdout(), cmd.ErrOrStderr())
+	},
+	SilenceUsage: true,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
