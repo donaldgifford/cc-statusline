@@ -49,7 +49,7 @@ layout that all subsequent phases build on. No user-facing features yet.
       `toggle` flag. Update the `Short` and `Long` descriptions to describe
       cc-statusline. Keep the `--config` persistent flag (re-implement without
       Viper in 0.2).
-- [ ] **0.4: Establish internal package layout.** Create the directory structure
+- [x] **0.4: Establish internal package layout.** Create the directory structure
       for internal packages:
   - `internal/model/` -- Go structs for the stdin JSON payload.
   - `internal/render/` -- Segment rendering and output formatting.
