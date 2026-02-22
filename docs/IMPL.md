@@ -44,7 +44,7 @@ layout that all subsequent phases build on. No user-facing features yet.
       loader using `os.ReadFile` + `gopkg.in/yaml.v3` (see task 1.11). Run
       `go mod tidy` to drop Viper's transitive dependencies. Verify `go.sum`
       shrinks from ~54 lines to ~12.
-- [ ] **0.3: Clean up Cobra scaffold.** Replace the boilerplate descriptions in
+- [x] **0.3: Clean up Cobra scaffold.** Replace the boilerplate descriptions in
       `cmd/root.go` (the Cobra-generated placeholder text). Remove the unused
       `toggle` flag. Update the `Short` and `Long` descriptions to describe
       cc-statusline. Keep the `--config` persistent flag (re-implement without
