@@ -67,7 +67,7 @@ layout that all subsequent phases build on. No user-facing features yet.
       function in an internal package that the Cobra root command calls with
       `cmd.InOrStdin()` and `cmd.OutOrStdout()`. This is the core function that
       all tests exercise. `main()` and Cobra are thin wrappers.
-- [ ] **0.6: Add test fixtures.** Create `testdata/` directory with sample stdin
+- [x] **0.6: Add test fixtures.** Create `testdata/` directory with sample stdin
       JSON payloads:
   - `testdata/basic.json` -- All fields populated.
   - `testdata/minimal.json` -- Only required fields.
