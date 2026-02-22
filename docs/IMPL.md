@@ -33,7 +33,7 @@ layout that all subsequent phases build on. No user-facing features yet.
 
 ### Tasks
 
-- [ ] **0.1: Fix main.go location.** The goreleaser config
+- [x] **0.1: Fix main.go location.** The goreleaser config
       (`./cmd/cc-statusline`) and Makefile (`./cmd/$(PROJECT_NAME)`) expect the
       entry point at `cmd/cc-statusline/main.go`, but it currently lives at the
       repo root. Move `main.go` to `cmd/cc-statusline/main.go` and update
