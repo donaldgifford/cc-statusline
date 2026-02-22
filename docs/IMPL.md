@@ -38,7 +38,7 @@ layout that all subsequent phases build on. No user-facing features yet.
       entry point at `cmd/cc-statusline/main.go`, but it currently lives at the
       repo root. Move `main.go` to `cmd/cc-statusline/main.go` and update
       imports. Verify `make build` and `goreleaser check` still work.
-- [ ] **0.2: Remove Viper, keep Cobra. (D1)** Remove `github.com/spf13/viper`
+- [x] **0.2: Remove Viper, keep Cobra. (D1)** Remove `github.com/spf13/viper`
       from `go.mod`. Delete the `initConfig()` function and
       `cobra.OnInitialize(initConfig)` call. Replace with a minimal config
       loader using `os.ReadFile` + `gopkg.in/yaml.v3` (see task 1.11). Run
