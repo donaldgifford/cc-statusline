@@ -20,6 +20,7 @@ func All() map[string]render.Segment {
 		Vim{},
 		Agent{},
 		DailyCost{},
+		BurnRate{},
 	}
 	m := make(map[string]render.Segment, len(list))
 	for _, s := range list {
