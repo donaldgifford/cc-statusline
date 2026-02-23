@@ -182,7 +182,7 @@ features. Default output matches the current bash statusline:
       stdin JSON as working directory. Timeout at 500ms via
       `context.WithTimeout`. Return branch name or empty string on
       error/timeout/not-a-repo.
-- [ ] **1.10: Implement the rendering pipeline.** In
+- [x] **1.10: Implement the rendering pipeline.** In
       `internal/render/renderer.go`: take config (segment list per line,
       separator, theme) and `*StatusData`. For each configured line, iterate
       segments, call `Render()`, collect non-empty results, join with separator.

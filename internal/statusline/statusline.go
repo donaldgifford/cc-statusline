@@ -2,22 +2,22 @@
 package statusline
 
 import (
-	"encoding/json"
 	"io"
+
+	"github.com/donaldgifford/cc-statusline/internal/model"
+	"github.com/donaldgifford/cc-statusline/internal/render"
+	"github.com/donaldgifford/cc-statusline/internal/render/segments"
 )
 
 // Run reads session JSON from in, renders the statusline, and writes to out.
 // This is the core function that all tests exercise.
 func Run(in io.Reader, out, _ io.Writer) error {
-	// Consume stdin to avoid broken pipe when Claude Code writes to us.
-	var raw json.RawMessage
-	if err := json.NewDecoder(in).Decode(&raw); err != nil {
-		// Empty or missing stdin is not an error for the statusline.
-		return nil //nolint:nilerr // empty stdin is expected when no data is piped
+	data, err := model.ReadStatus(in)
+	if err != nil {
+		return err
 	}
 
-	// Phase 1 will implement: parse JSON, build segments, render output.
-	_ = out
-
-	return nil
+	cfg := render.DefaultConfig()
+	r := render.New(cfg, segments.All())
+	return r.Render(out, data)
 }
