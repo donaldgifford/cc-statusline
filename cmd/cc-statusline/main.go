@@ -17,6 +17,13 @@ package main
 
 import "github.com/donaldgifford/cc-statusline/cmd"
 
+// Injected at build time via -ldflags.
+var (
+	version = "dev"
+	commit  = "none"
+)
+
 func main() {
+	cmd.SetVersionInfo(version, commit)
 	cmd.Execute()
 }

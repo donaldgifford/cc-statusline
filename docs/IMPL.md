@@ -228,11 +228,11 @@ features. Default output matches the current bash statusline:
 
 #### 1E: CLI Commands
 
-- [ ] **1.15: Implement the default (root) command.** Cobra root command's
+- [x] **1.15: Implement the default (root) command.** Cobra root command's
       `RunE`: load config, read stdin, parse JSON, build segment list, render,
       print to stdout. This is the primary execution path invoked by Claude
       Code.
-- [ ] **1.16: Implement `install` subcommand. (D9)** Resolve the binary's
+- [x] **1.16: Implement `install` subcommand. (D9)** Resolve the binary's
       absolute path via `os.Executable()` + `filepath.EvalSymlinks()`. Read
       `~/.claude/settings.json` (or `$CLAUDE_CONFIG_DIR/settings.json`). Merge
       the `statusLine` entry using `encoding/json` (unmarshal to
@@ -250,10 +250,10 @@ features. Default output matches the current bash statusline:
   }
   ```
 
-- [ ] **1.17: Implement `uninstall` subcommand.** Read
+- [x] **1.17: Implement `uninstall` subcommand.** Read
       `~/.claude/settings.json`, delete the `statusLine` key, write back. If
       file doesn't exist or key is absent, no-op with a message.
-- [ ] **1.18: Implement `version` subcommand.** Print version and commit hash
+- [x] **1.18: Implement `version` subcommand.** Print version and commit hash
       (injected via `-ldflags` at build time). Format:
       `cc-statusline version v0.1.0 (abc1234)`.
 - [ ] **1.19: Test CLI commands.** Test `install` and `uninstall` against a temp
