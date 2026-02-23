@@ -115,7 +115,7 @@ features. Default output matches the current bash statusline:
       from `io.Reader` using `json.NewDecoder`. Handle: valid JSON, empty stdin
       (return zero-value struct, not error), malformed JSON (return error).
       Return typed `*StatusData` or error. Use stdlib `encoding/json` only.
-- [ ] **1.3: Test stdin parsing.** Table-driven tests using the fixtures from
+- [x] **1.3: Test stdin parsing.** Table-driven tests using the fixtures from
       0.6. Cover: all fields present, missing optional fields, null values,
       malformed input, empty input, unknown fields silently ignored (forward
       compatibility with future Claude Code versions).
