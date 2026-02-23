@@ -6,10 +6,16 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/donaldgifford/cc-statusline/internal/config"
 	"github.com/donaldgifford/cc-statusline/internal/statusline"
 )
 
-var cfgFile string
+var (
+	cfgFile              string
+	noColor              bool
+	experimentalJSONL    bool
+	experimentalUsageAPI bool
+)
 
 // rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
@@ -17,7 +23,28 @@ var rootCmd = &cobra.Command{
 	Short: "A statusline for Claude Code",
 	Long:  "cc-statusline reads session data from Claude Code via stdin and renders a configurable statusline.",
 	RunE: func(cmd *cobra.Command, _ []string) error {
-		return statusline.Run(cmd.InOrStdin(), cmd.OutOrStdout(), cmd.ErrOrStderr())
+		cfgPath := cfgFile
+		if cfgPath == "" {
+			cfgPath = config.DefaultPath()
+		}
+		cfg, err := config.Load(cfgPath)
+		if err != nil {
+			return err
+		}
+
+		// CLI flags override config file values.
+		if noColor {
+			f := false
+			cfg.Color = &f
+		}
+		if experimentalJSONL {
+			cfg.Experimental.JSONL = true
+		}
+		if experimentalUsageAPI {
+			cfg.Experimental.UsageAPI = true
+		}
+
+		return statusline.RunWithConfig(cmd.InOrStdin(), cmd.OutOrStdout(), cfg)
 	},
 	SilenceUsage: true,
 }
@@ -32,4 +59,7 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cc-statusline.yaml)")
+	rootCmd.PersistentFlags().BoolVar(&noColor, "no-color", false, "disable color output")
+	rootCmd.PersistentFlags().BoolVar(&experimentalJSONL, "experimental-jsonl", false, "enable experimental JSONL transcript segments")
+	rootCmd.PersistentFlags().BoolVar(&experimentalUsageAPI, "experimental-usage-api", false, "enable experimental usage API segments")
 }

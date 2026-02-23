@@ -198,7 +198,7 @@ features. Default output matches the current bash statusline:
 
 #### 1D: Configuration
 
-- [ ] **1.13: Implement config loader. (D1, D2, D3)** In
+- [x] **1.13: Implement config loader. (D1, D2, D3)** In
       `internal/config/config.go`: define the `Config` struct:
 
   ```yaml
