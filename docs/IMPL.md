@@ -137,7 +137,7 @@ features. Default output matches the current bash statusline:
   - `catppuccin` -- Pastel palette. Config selects theme via
     `theme: tokyo-night`. Per-segment color overrides in config take precedence
     over theme.
-- [ ] **1.6: Test color and theme logic.** Test: colorize with and without
+- [x] **1.6: Test color and theme logic.** Test: colorize with and without
       `NO_COLOR`, theme loading by name, per-segment color override precedence,
       unknown theme name falls back to default.
 
