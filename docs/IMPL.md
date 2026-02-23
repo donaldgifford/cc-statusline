@@ -268,7 +268,7 @@ features. Default output matches the current bash statusline:
       `go install`), quick start (`cc-statusline install`, what it looks like),
       configuration reference (theme, segments, lines, separator), segment list
       with descriptions, available themes.
-- [ ] **1.21: Add integration test.** Build the binary with `go build`, pipe
+- [x] **1.21: Add integration test.** Build the binary with `go build`, pipe
       test JSON via `exec.Command`, assert formatted output on stdout. This
       catches issues that unit tests miss (ldflags, Cobra wiring, stdin/stdout
       plumbing, config file resolution).
