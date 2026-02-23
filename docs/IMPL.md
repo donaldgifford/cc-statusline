@@ -129,7 +129,7 @@ features. Default output matches the current bash statusline:
       escape codes + reset. Implement `Enabled() bool` that checks `--no-color`
       flag and `NO_COLOR` env var. When disabled, `Colorize` returns the text
       unmodified. Zero external dependencies.
-- [ ] **1.5: Implement named themes. (D8)** In `internal/render/theme/`: define
+- [x] **1.5: Implement named themes. (D8)** In `internal/render/theme/`: define
       a `Theme` struct mapping segment names to fg/bg color codes. Implement
       built-in themes:
   - `tokyo-night` (default) -- Cool blues and purples.
