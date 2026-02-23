@@ -143,7 +143,7 @@ features. Default output matches the current bash statusline:
 
 #### 1C: Segment Rendering
 
-- [ ] **1.7: Define the segment interface.** A segment is a unit of statusline
+- [x] **1.7: Define the segment interface.** A segment is a unit of statusline
       output:
 
   ```go
