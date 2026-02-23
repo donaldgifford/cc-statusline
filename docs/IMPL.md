@@ -303,7 +303,7 @@ and deduplication (D5, D6).
 
 #### 2A: Experimental Infrastructure
 
-- [ ] **2.1: Implement experimental flag gating.** When building the segment
+- [x] **2.1: Implement experimental flag gating.** When building the segment
       list, check each segment's `Source()`. Skip segments tagged
       `experimental:jsonl` unless `config.Experimental.JSONL` is true. The
       rendering pipeline should not call `Render()` on gated segments.
