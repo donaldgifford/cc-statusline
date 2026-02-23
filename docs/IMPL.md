@@ -419,7 +419,7 @@ endpoint. All behind `--experimental-usage-api`.
 
 #### 3B: Auth & Token Management
 
-- [ ] **3.2: Implement credential reader. (D4, D10)** In
+- [x] **3.2: Implement credential reader. (D4, D10)** In
       `internal/usageapi/auth.go`: read the OAuth token from Claude Code's
       existing credential store. Priority order:
   1. `CC_STATUSLINE_TOKEN` env var (explicit override).
