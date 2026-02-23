@@ -157,7 +157,7 @@ features. Default output matches the current bash statusline:
   Segments with `experimental:*` source are skipped unless the corresponding
   flag is enabled. A segment returning empty string is omitted from output.
 
-- [ ] **1.8: Implement stable segments.** One segment per file under
+- [x] **1.8: Implement stable segments.** One segment per file under
       `internal/render/segments/`:
   - `cwd.go` -- Current working directory, abbreviated with `~` for home dir.
     Colored per theme.
@@ -177,7 +177,7 @@ features. Default output matches the current bash statusline:
   - `vim.go` -- Vim mode: `NORMAL` or `INSERT`. Only renders when `vim` is
     present in the JSON.
   - `agent.go` -- Agent name. Only renders when `agent` is present in the JSON.
-- [ ] **1.9: Implement git segment helper.** In `internal/git/git.go`: run
+- [x] **1.9: Implement git segment helper.** In `internal/git/git.go`: run
       `git rev-parse --abbrev-ref HEAD` as a subprocess with the `cwd` from the
       stdin JSON as working directory. Timeout at 500ms via
       `context.WithTimeout`. Return branch name or empty string on
