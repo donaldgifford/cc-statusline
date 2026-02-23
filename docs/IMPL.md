@@ -355,7 +355,7 @@ and deduplication (D5, D6).
       Test: valid entries, malformed lines (skipped gracefully), duplicate
       entries (deduplicated), empty file, entries from multiple sessions,
       timestamp ordering.
-- [ ] **2.9: Test caching.** Test: cache miss (first read), cache hit (within
+- [x] **2.9: Test caching.** Test: cache miss (first read), cache hit (within
       TTL), cache expiry (past TTL), cache invalidation (source file mtime
       changed), atomic write (no partial reads), directory creation on first
       use.
