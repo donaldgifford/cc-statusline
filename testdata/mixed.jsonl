@@ -1,0 +1,6 @@
+{"timestamp":"2025-06-01T10:00:00Z","sessionId":"sess-001","costUSD":0.05,"requestId":"req-001","message":{"model":"claude-sonnet-4-6-20250514","id":"msg-001","usage":{"input_tokens":1000,"output_tokens":500}}}
+this is not valid json
+{"timestamp":"2025-06-01T10:01:00Z","sessionId":"sess-001","costUSD":0.08,"requestId":"req-002","message":{"model":"claude-sonnet-4-6-20250514","id":"msg-002","usage":{"input_tokens":2000,"output_tokens":800}}}
+{"malformed": true}
+{"timestamp":"2025-06-01T10:02:00Z","message":null}
+{"timestamp":"2025-06-01T10:03:00Z","sessionId":"sess-001","costUSD":0.12,"requestId":"req-003","message":{"model":"claude-opus-4-6-20250514","id":"msg-003","usage":{"input_tokens":500,"output_tokens":200}}}

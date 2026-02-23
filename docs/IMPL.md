@@ -351,7 +351,7 @@ and deduplication (D5, D6).
       `//go:embed internal/pricing/fallback.json`. On fetch failure, use local
       cache if present, else bundled fallback. Log when using stale/bundled
       pricing.
-- [ ] **2.8: Test JSONL parsing.** Create JSONL test fixtures in `testdata/`.
+- [x] **2.8: Test JSONL parsing.** Create JSONL test fixtures in `testdata/`.
       Test: valid entries, malformed lines (skipped gracefully), duplicate
       entries (deduplicated), empty file, entries from multiple sessions,
       timestamp ordering.
