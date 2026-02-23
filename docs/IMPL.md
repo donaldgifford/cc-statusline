@@ -432,7 +432,7 @@ endpoint. All behind `--experimental-usage-api`.
   4. Manual fallback: read from `~/.config/cc-statusline/auth.json` (written by
      `cc-statusline auth`). Return the token string and expiry status, or a
      structured error indicating which sources were tried and why each failed.
-- [ ] **3.3: Implement token refresh.** If the token is expired (past
+- [x] **3.3: Implement token refresh.** If the token is expired (past
       `expiresAt`): `POST https://console.anthropic.com/v1/oauth/token` with
       `Content-Type: application/json` body
       `{"grant_type": "refresh_token", "refresh_token": "<refreshToken>"}`.
