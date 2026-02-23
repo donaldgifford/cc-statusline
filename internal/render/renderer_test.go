@@ -28,7 +28,7 @@ func TestRendererSingleLine(t *testing.T) {
 		Separator: " ",
 		ThemeName: theme.DefaultThemeName,
 	}
-	r := render.New(cfg, segments.All())
+	r := render.New(cfg, segments.All(segments.AllConfig{}))
 
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Opus 4.6"},
@@ -58,7 +58,7 @@ func TestRendererMultiLine(t *testing.T) {
 		Separator: " ",
 		ThemeName: theme.DefaultThemeName,
 	}
-	r := render.New(cfg, segments.All())
+	r := render.New(cfg, segments.All(segments.AllConfig{}))
 
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Opus 4.6"},
@@ -91,7 +91,7 @@ func TestRendererSegmentOrder(t *testing.T) {
 		Separator: " | ",
 		ThemeName: theme.DefaultThemeName,
 	}
-	r := render.New(cfg, segments.All())
+	r := render.New(cfg, segments.All(segments.AllConfig{}))
 
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Sonnet"},
@@ -118,7 +118,7 @@ func TestRendererEmptySegmentsOmitted(t *testing.T) {
 		Separator: " ",
 		ThemeName: theme.DefaultThemeName,
 	}
-	r := render.New(cfg, segments.All())
+	r := render.New(cfg, segments.All(segments.AllConfig{}))
 
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Opus"},
@@ -145,7 +145,7 @@ func TestRendererUnknownSegmentSkipped(t *testing.T) {
 		Separator: " ",
 		ThemeName: theme.DefaultThemeName,
 	}
-	r := render.New(cfg, segments.All())
+	r := render.New(cfg, segments.All(segments.AllConfig{}))
 
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Opus"},

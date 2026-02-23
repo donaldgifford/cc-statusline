@@ -255,11 +255,12 @@ func TestAgentPresent(t *testing.T) {
 func TestRegistryAll(t *testing.T) {
 	t.Parallel()
 
-	all := segments.All()
+	all := segments.All(segments.AllConfig{})
 	expected := []string{
 		"cwd", "git_branch", "model", "context", "cost",
 		"duration", "tokens", "lines", "vim", "agent",
 		"daily_cost", "burn_rate", "model_breakdown",
+		"five_hour", "weekly_limits", "extra_usage",
 	}
 	for _, name := range expected {
 		if _, ok := all[name]; !ok {

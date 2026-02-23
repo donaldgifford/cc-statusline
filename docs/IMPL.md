@@ -505,17 +505,17 @@ endpoint. All behind `--experimental-usage-api`.
 
 #### 3D: Experimental Segments
 
-- [ ] **3.9: Implement 5-hour window segment.** Display time remaining and
+- [x] **3.9: Implement 5-hour window segment.** Display time remaining and
       percentage used. Format: `5h: 3h12m left (36%)`. Color-coded by
       utilization: green <50%, yellow 50-80%, red >80%. Compute time remaining
       from `resets_at` minus `time.Now()`. When data unavailable: `5h: err`.
-- [ ] **3.10: Implement weekly limits segment.** Display per-model and overall
+- [x] **3.10: Implement weekly limits segment.** Display per-model and overall
       percentages with reset times. Format:
       `wk: sonnet 45% (resets Sat 2p) / all 62% (resets Thu 9p)`. Convert
       `resets_at` from UTC to user's local timezone, format as short day + 12h
       time. Use `seven_day_sonnet` and `seven_day` from the response. When data
       unavailable: `wk: err`.
-- [ ] **3.11: Implement extra usage segment.** Display spending against limit.
+- [x] **3.11: Implement extra usage segment.** Display spending against limit.
       Format: `extra: $12.50 / $50.00`. Convert `used_credits` and
       `monthly_limit` from cents to dollars. Only renders when
       `extra_usage.is_enabled` is true. When data unavailable: `extra: err`.

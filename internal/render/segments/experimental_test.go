@@ -248,8 +248,11 @@ func TestShortenModelName(t *testing.T) {
 func TestRegistryIncludesExperimental(t *testing.T) {
 	t.Parallel()
 
-	all := segments.All()
-	expected := []string{"daily_cost", "burn_rate", "model_breakdown"}
+	all := segments.All(segments.AllConfig{})
+	expected := []string{
+		"daily_cost", "burn_rate", "model_breakdown",
+		"five_hour", "weekly_limits", "extra_usage",
+	}
 	for _, name := range expected {
 		if _, ok := all[name]; !ok {
 			t.Errorf("registry missing experimental segment %q", name)
