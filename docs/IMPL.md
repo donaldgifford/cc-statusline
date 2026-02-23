@@ -221,7 +221,7 @@ features. Default output matches the current bash statusline:
   `--experimental-jsonl`, `--experimental-usage-api` override config values.
   Explicit env var support: `NO_COLOR=1` disables color.
 
-- [ ] **1.14: Test config loading.** Test: defaults when no file, file with all
+- [x] **1.14: Test config loading.** Test: defaults when no file, file with all
       fields, file with `segments:` shorthand vs `lines:`, CLI flag overrides,
       `NO_COLOR` env var, missing file (no error), malformed YAML (error),
       unknown segment name in list (warn and skip).
