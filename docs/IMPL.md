@@ -122,7 +122,7 @@ features. Default output matches the current bash statusline:
 
 #### 1B: Color & Themes
 
-- [ ] **1.4: Implement ANSI color helpers.** In `internal/color/color.go`:
+- [x] **1.4: Implement ANSI color helpers.** In `internal/color/color.go`:
       define constants for ANSI escape codes (reset, bold, dim, 16 standard
       colors for fg/bg). Implement
       `Colorize(text string, codes ...string) string` helper that wraps text in
