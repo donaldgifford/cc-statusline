@@ -519,7 +519,7 @@ endpoint. All behind `--experimental-usage-api`.
       Format: `extra: $12.50 / $50.00`. Convert `used_credits` and
       `monthly_limit` from cents to dollars. Only renders when
       `extra_usage.is_enabled` is true. When data unavailable: `extra: err`.
-- [ ] **3.12: Test usage segments.** Table-driven tests with mock API data.
+- [x] **3.12: Test usage segments.** Table-driven tests with mock API data.
       Test: segments omitted when flag disabled, `err` on API failure, correct
       percentage formatting, reset time formatting across timezones (use
       `time.FixedZone`), boundary values (0%, 100%, >100%), `extra_usage`
