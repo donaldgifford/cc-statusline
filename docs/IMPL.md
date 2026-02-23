@@ -362,7 +362,7 @@ and deduplication (D5, D6).
 
 #### 2C: Experimental Segments
 
-- [ ] **2.10: Implement daily cost segment.** Aggregate `costUSD` across all
+- [x] **2.10: Implement daily cost segment.** Aggregate `costUSD` across all
       JSONL entries from today (UTC). Display as `$X.XX today`. Cache with
       5-second TTL, invalidated by transcript file mtime change.
 - [ ] **2.11: Implement burn rate segment.** Calculate tokens/minute and
