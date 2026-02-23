@@ -264,7 +264,7 @@ features. Default output matches the current bash statusline:
 
 #### 1F: Documentation & Release
 
-- [ ] **1.20: Write README.md.** Installation instructions (goreleaser binaries,
+- [x] **1.20: Write README.md.** Installation instructions (goreleaser binaries,
       `go install`), quick start (`cc-statusline install`, what it looks like),
       configuration reference (theme, segments, lines, separator), segment list
       with descriptions, available themes.
