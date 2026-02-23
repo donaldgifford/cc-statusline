@@ -319,7 +319,7 @@ and deduplication (D5, D6).
 
 #### 2B: JSONL Parsing
 
-- [ ] **2.4: Implement JSONL reader. (D5)** In `internal/jsonl/reader.go`: open
+- [x] **2.4: Implement JSONL reader. (D5)** In `internal/jsonl/reader.go`: open
       a JSONL file, stream-parse lines using `bufio.Scanner` + `json.Unmarshal`.
       Define Go structs for the JSONL entry schema. Required fields: `timestamp`
       (ISO 8601), `message.usage.input_tokens`, `message.usage.output_tokens`.
@@ -331,12 +331,12 @@ and deduplication (D5, D6).
       (no error accumulation, just `continue`). Deduplicate by hashing
       `message.id` + `requestId`; if either is missing, skip dedup for that
       entry.
-- [ ] **2.5: Implement transcript file discovery.** Primary: use
+- [x] **2.5: Implement transcript file discovery.** Primary: use
       `transcript_path` from the stdin JSON (points to the current session's
       file). For daily aggregation, scan directories in order:
       `$CLAUDE_CONFIG_DIR/projects/`, `$XDG_CONFIG_HOME/claude/projects/`,
       `~/.claude/projects/`. Use `filepath.Glob` with `**/*.jsonl` pattern.
-- [ ] **2.6: Implement file-based caching.** In `internal/cache/cache.go`:
+- [x] **2.6: Implement file-based caching.** In `internal/cache/cache.go`:
       JSON-file cache at `~/.cache/cc-statusline/`. Each entry stores:
       serialized data, expiry timestamp, source file mtime at cache time.
       `Get(key, sourcePath)` returns data if not expired and source file mtime
