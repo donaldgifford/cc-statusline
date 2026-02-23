@@ -111,7 +111,7 @@ features. Default output matches the current bash statusline:
       fields (`used_percentage`, `remaining_percentage`). Use pointer-to-struct
       for conditionally absent objects (`vim`, `agent`, `current_usage`). Add
       `json` struct tags for all fields.
-- [ ] **1.2: Implement stdin reader.** In `internal/model/reader.go`: read JSON
+- [x] **1.2: Implement stdin reader.** In `internal/model/reader.go`: read JSON
       from `io.Reader` using `json.NewDecoder`. Handle: valid JSON, empty stdin
       (return zero-value struct, not error), malformed JSON (return error).
       Return typed `*StatusData` or error. Use stdlib `encoding/json` only.
