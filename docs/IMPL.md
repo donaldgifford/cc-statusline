@@ -408,7 +408,7 @@ endpoint. All behind `--experimental-usage-api`.
 
 #### 3A: Prototyping
 
-- [ ] **3.1: Prototype the API call.** Write a standalone Go program in
+- [x] **3.1: Prototype the API call.** Write a standalone Go program in
       `cmd/usage-probe/` (not shipped in release) that reads the OAuth token
       from the macOS Keychain or `~/.claude/.credentials.json`, calls
       `GET https://api.anthropic.com/api/oauth/usage` with
