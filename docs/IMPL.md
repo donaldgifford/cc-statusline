@@ -74,7 +74,7 @@ layout that all subsequent phases build on. No user-facing features yet.
   - `testdata/nulls.json` -- Null `current_usage`, missing `vim` and `agent`.
   - `testdata/malformed.json` -- Invalid JSON.
   - `testdata/empty.json` -- Empty object `{}`.
-- [ ] **0.7: Verify CI.** Confirm `make ci` passes (lint + test + build +
+- [x] **0.7: Verify CI.** Confirm `make ci` passes (lint + test + build +
       license check) with the restructured project. Fix any linter issues from
       the scaffold cleanup.
 
