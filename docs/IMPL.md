@@ -307,7 +307,7 @@ and deduplication (D5, D6).
       list, check each segment's `Source()`. Skip segments tagged
       `experimental:jsonl` unless `config.Experimental.JSONL` is true. The
       rendering pipeline should not call `Render()` on gated segments.
-- [ ] **2.2: Implement error logging.** In `internal/errlog/`: write to
+- [x] **2.2: Implement error logging.** In `internal/errlog/`: write to
       `~/.cache/cc-statusline/error.log`. Append-only with ISO 8601 timestamps.
       Rotate when file exceeds 1MB (truncate and start fresh). Create cache dir
       with `0700`, log file with `0600`. Used by experimental features to log
