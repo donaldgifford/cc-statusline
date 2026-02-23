@@ -496,7 +496,7 @@ endpoint. All behind `--experimental-usage-api`.
       return cached data if within a 5-minute grace period (stale-while-error).
       Track consecutive failures; after 5, log a warning suggesting
       `cc-statusline auth --status`.
-- [ ] **3.8: Test the API client.** Use `httptest.NewServer` for canned
+- [x] **3.8: Test the API client.** Use `httptest.NewServer` for canned
       responses. Test: success, 401 (triggers auth suggestion log), 500 (retry
       then fail), timeout, malformed JSON body, `utilization` as int vs float vs
       string, null `resets_at`, null `extra_usage`, `extra_usage.monthly_limit`
