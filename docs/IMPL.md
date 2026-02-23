@@ -451,7 +451,7 @@ endpoint. All behind `--experimental-usage-api`.
       `cc-statusline auth --status` to report: which credential source is
       active, whether the token is expired, and whether the usage API is
       reachable.
-- [ ] **3.5: Test credential reader.** Test: env var takes priority, Keychain
+- [x] **3.5: Test credential reader.** Test: env var takes priority, Keychain
       command mocked via interface (accept a `CommandRunner` func so tests don't
       call real `security`), Linux credentials file read from temp dir, expired
       token detected from `expiresAt`, fallback chain order respected. Test
