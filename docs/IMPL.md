@@ -460,7 +460,7 @@ endpoint. All behind `--experimental-usage-api`.
 
 #### 3C: API Client
 
-- [ ] **3.6: Implement the usage API client.** In `internal/usageapi/client.go`:
+- [x] **3.6: Implement the usage API client.** In `internal/usageapi/client.go`:
       `GET https://api.anthropic.com/api/oauth/usage` with headers
       `Authorization: Bearer <token>` and `anthropic-beta: oauth-2025-04-20`.
       Timeout at 2 seconds via `context.WithTimeout`. Parse response into typed
@@ -491,7 +491,7 @@ endpoint. All behind `--experimental-usage-api`.
   HTTP errors or unexpected response shapes: log raw body for debugging. One
   retry with 500ms backoff on 5xx errors. Use stdlib `net/http` only.
 
-- [ ] **3.7: Implement usage API caching.** Cache API responses at
+- [x] **3.7: Implement usage API caching.** Cache API responses at
       `~/.cache/cc-statusline/usage.json` with 30-second TTL. On fetch failure,
       return cached data if within a 5-minute grace period (stale-while-error).
       Track consecutive failures; after 5, log a warning suggesting
