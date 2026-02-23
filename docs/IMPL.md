@@ -256,7 +256,7 @@ features. Default output matches the current bash statusline:
 - [x] **1.18: Implement `version` subcommand.** Print version and commit hash
       (injected via `-ldflags` at build time). Format:
       `cc-statusline version v0.1.0 (abc1234)`.
-- [ ] **1.19: Test CLI commands.** Test `install` and `uninstall` against a temp
+- [x] **1.19: Test CLI commands.** Test `install` and `uninstall` against a temp
       directory (inject config dir path, don't touch real `~/.claude/`). Test:
       fresh install, install over existing settings, install over existing
       statusLine, uninstall, uninstall when not installed. Test `version` output
