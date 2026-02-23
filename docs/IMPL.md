@@ -443,7 +443,7 @@ endpoint. All behind `--experimental-usage-api`.
       for subsequent cc-statusline invocations. Important: refresh tokens are
       single-use. If refresh fails, log the error and suggest running
       `claude auth` from the terminal to re-authenticate.
-- [ ] **3.4: Implement `auth` subcommand.** Add `cc-statusline auth` for cases
+- [x] **3.4: Implement `auth` subcommand.** Add `cc-statusline auth` for cases
       where automatic credential reading fails (no Keychain access, no
       credentials file, broken token). Print which credential sources were
       checked and why they failed. Accept a pasted token via stdin and write to
