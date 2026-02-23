@@ -188,11 +188,11 @@ features. Default output matches the current bash statusline:
       segments, call `Render()`, collect non-empty results, join with separator.
       Write each line as a separate `fmt.Fprintln(out, ...)`. Skip experimental
       segments if their flag is not enabled.
-- [ ] **1.11: Test segments individually.** Table-driven tests for each segment.
+- [x] **1.11: Test segments individually.** Table-driven tests for each segment.
       Edge cases: zero cost, null percentages, missing vim/agent, very long
       paths (>80 chars), zero-length durations, empty branch name,
       `used_percentage` at 0/50/80/100.
-- [ ] **1.12: Test the full rendering pipeline.** End-to-end tests: JSON in,
+- [x] **1.12: Test the full rendering pipeline.** End-to-end tests: JSON in,
       formatted string out via the `Run()` function. Test single-line and
       multi-line configs. Test segment ordering matches config order.
 
