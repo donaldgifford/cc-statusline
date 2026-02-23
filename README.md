@@ -81,11 +81,34 @@ segments: [cwd, git_branch, model, context]
 ### CLI flags
 
 ```
---config string     Config file (default ~/.cc-statusline.yaml)
---no-color          Disable color output
+--config string              Config file (default ~/.cc-statusline.yaml)
+--no-color                   Disable color output
+--experimental-jsonl         Enable JSONL transcript parsing segments
+--experimental-usage-api     Enable OAuth usage API segments
 ```
 
 Color is also disabled when `NO_COLOR=1` is set.
+
+## Experimental: JSONL Transcript Parsing
+
+Enable with `--experimental-jsonl` or in config:
+
+```yaml
+experimental:
+  jsonl: true
+```
+
+This adds segments that parse Claude Code's local JSONL transcript files:
+
+| Segment | Description |
+|---------|-------------|
+| `daily_cost` | Total cost across all sessions today (UTC) |
+| `burn_rate` | Cost per hour in the current activity block |
+| `model_breakdown` | Per-model cost breakdown (e.g., `opus4.6:$0.50 sonnet4.6:$0.25`) |
+
+These segments read files from `~/.claude/projects/` and cache results with a 5-second TTL. If parsing fails, affected segments show `err` (dim red) while the rest of the statusline renders normally. Errors are logged to `~/.cache/cc-statusline/error.log`.
+
+See [EXPERIMENTAL.md](docs/EXPERIMENTAL.md) for details on risks and stability expectations.
 
 ## License
 

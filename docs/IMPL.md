@@ -379,7 +379,7 @@ and deduplication (D5, D6).
 
 #### 2D: Documentation
 
-- [ ] **2.14: Update README with experimental section.** Document how to enable
+- [x] **2.14: Update README with experimental section.** Document how to enable
       `--experimental-jsonl`, what segments it adds, what the risks are (link to
       EXPERIMENTAL.md).
 
