@@ -102,8 +102,9 @@ See [DATA_SOURCES.md](DATA_SOURCES.md#local-jsonl-transcript-files-phase-2) for 
 
 Queries Anthropic's internal usage API to display real-time limit information:
 
-- **5-hour window:** Percentage used, time remaining until reset.
-- **Weekly limits:** Percentage used for all models and per-model breakdown (e.g., Sonnet-only vs overall). Reset timestamps.
+- **5-hour window:** Time remaining and percentage used. Format: `5h: 3h12m left (36%)`.
+- **Weekly limits:** Per-model and overall percentages with reset times. Format: `wk: sonnet 45% (resets Sat 2p) / all 62% (resets Thu 9p)`. Reset times are converted from UTC to the user's local timezone.
+- **Extra usage:** Extra usage spending against the monthly limit. Format: `extra: $12.50 / $50.00`. Only renders when `extra_usage.is_enabled` is true. Values are converted from cents to dollars.
 
 ### Why It's Experimental
 

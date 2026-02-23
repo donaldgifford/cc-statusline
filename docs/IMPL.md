@@ -527,11 +527,11 @@ endpoint. All behind `--experimental-usage-api`.
 
 #### 3E: Documentation
 
-- [ ] **3.13: Update EXPERIMENTAL.md.** Fill in the auth requirements section
+- [x] **3.13: Update EXPERIMENTAL.md.** Fill in the auth requirements section
       with the credential reader priority chain. Document the actual response
       schema. Document the token refresh flow and the single-use refresh token
       caveat. Update the failure mode table with real-world observations.
-- [ ] **3.14: Update DATA_SOURCES.md.** Add the confirmed response schema.
+- [x] **3.14: Update DATA_SOURCES.md.** Add the confirmed response schema.
       Document: the `anthropic-beta` header requirement, `utilization` type
       variance, `extra_usage` cents-vs-dollars, credential storage locations,
       refresh endpoint at `console.anthropic.com` (not `api.anthropic.com`).

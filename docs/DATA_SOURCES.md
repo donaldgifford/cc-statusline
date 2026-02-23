@@ -184,8 +184,6 @@ The `anthropic-beta: oauth-2025-04-20` header is **required** -- without it, the
 
 | Data | Notes |
 |------|-------|
-| Extra usage balance | No known programmatic source. Only visible on `claude.ai/settings/usage`. |
-| Extra usage spending cap | Same -- web dashboard only. |
 | Plan tier (Pro/Max 5x/Max 20x) | Not exposed in any known API or local data. |
 | Exact token allocations per plan | Anthropic does not publish these numbers. |
 
