@@ -21,6 +21,7 @@ func All() map[string]render.Segment {
 		Agent{},
 		DailyCost{},
 		BurnRate{},
+		ModelBreakdown{},
 	}
 	m := make(map[string]render.Segment, len(list))
 	for _, s := range list {

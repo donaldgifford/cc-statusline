@@ -369,7 +369,7 @@ and deduplication (D5, D6).
       cost/hour from the current 5-hour block. A block starts when there's a gap
       of >5 hours between entries. Display as `$X.XX/hr`. Cache with 5-second
       TTL.
-- [ ] **2.12: Implement per-model breakdown segment.** Group session costs by
+- [x] **2.12: Implement per-model breakdown segment.** Group session costs by
       model ID. Display as `opus:$X.XX sonnet:$X.XX`. Shorten model IDs to
       display names.
 - [ ] **2.13: Test experimental segments.** Table-driven tests with mock JSONL
