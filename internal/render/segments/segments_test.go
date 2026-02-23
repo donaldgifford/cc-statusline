@@ -259,6 +259,7 @@ func TestRegistryAll(t *testing.T) {
 	expected := []string{
 		"cwd", "git_branch", "model", "context", "cost",
 		"duration", "tokens", "lines", "vim", "agent",
+		"daily_cost", "burn_rate", "model_breakdown",
 	}
 	for _, name := range expected {
 		if _, ok := all[name]; !ok {

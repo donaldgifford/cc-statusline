@@ -372,7 +372,7 @@ and deduplication (D5, D6).
 - [x] **2.12: Implement per-model breakdown segment.** Group session costs by
       model ID. Display as `opus:$X.XX sonnet:$X.XX`. Shorten model IDs to
       display names.
-- [ ] **2.13: Test experimental segments.** Table-driven tests with mock JSONL
+- [x] **2.13: Test experimental segments.** Table-driven tests with mock JSONL
       data. Test: segments omitted when flag disabled, `err` displayed on parse
       failure, correct aggregation math (including deduplication), cache
       hit/miss behavior, multiple models in breakdown.
