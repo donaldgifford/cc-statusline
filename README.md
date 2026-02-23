@@ -110,6 +110,48 @@ These segments read files from `~/.claude/projects/` and cache results with a 5-
 
 See [EXPERIMENTAL.md](docs/EXPERIMENTAL.md) for details on risks and stability expectations.
 
+## Experimental: OAuth Usage API
+
+Enable with `--experimental-usage-api` or in config:
+
+```yaml
+experimental:
+  usage_api: true
+```
+
+This adds segments that query Anthropic's internal usage API for real-time limit data:
+
+| Segment | Description |
+|---------|-------------|
+| `five_hour` | 5-hour usage window: time remaining and utilization (e.g., `5h: 3h12m left (36%)`) |
+| `weekly_limits` | Weekly limits with reset times (e.g., `wk: sonnet 45% (resets Sat 2p) / all 62%`) |
+| `extra_usage` | Extra usage spending vs limit (e.g., `extra: $12.50 / $50.00`) |
+
+### Authentication
+
+cc-statusline reads credentials automatically from Claude Code's credential store:
+
+1. `CC_STATUSLINE_TOKEN` env var (explicit override)
+2. macOS Keychain (`Claude Code-credentials` entry)
+3. `~/.claude/.credentials.json` (Linux)
+4. `~/.config/cc-statusline/auth.json` (manual fallback)
+
+If automatic detection fails, use `cc-statusline auth` to paste a token manually:
+
+```bash
+cc-statusline auth
+```
+
+Check credential status:
+
+```bash
+cc-statusline auth --status
+```
+
+Expired tokens are auto-refreshed when a refresh token is available. API responses are cached for 30 seconds.
+
+See [EXPERIMENTAL.md](docs/EXPERIMENTAL.md) for details on risks, stability, and the token refresh flow.
+
 ## License
 
 Apache 2.0

@@ -535,7 +535,7 @@ endpoint. All behind `--experimental-usage-api`.
       Document: the `anthropic-beta` header requirement, `utilization` type
       variance, `extra_usage` cents-vs-dollars, credential storage locations,
       refresh endpoint at `console.anthropic.com` (not `api.anthropic.com`).
-- [ ] **3.15: Update README.** Document `--experimental-usage-api`,
+- [x] **3.15: Update README.** Document `--experimental-usage-api`,
       `cc-statusline auth` and `auth --status`, credential auto-detection, what
       segments it enables, what to expect when the API breaks.
 
