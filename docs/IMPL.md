@@ -342,7 +342,7 @@ and deduplication (D5, D6).
       `Get(key, sourcePath)` returns data if not expired and source file mtime
       hasn't changed. `Set(key, data, ttl, sourceMtime)` writes atomically
       (`os.CreateTemp` + `os.Rename`). Dir: `0700`, files: `0600`.
-- [ ] **2.7: Implement pricing data fetcher. (D6)** Fetch the full LiteLLM
+- [x] **2.7: Implement pricing data fetcher. (D6)** Fetch the full LiteLLM
       pricing JSON from
       `raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json`.
       Filter to only Claude/Anthropic models and cache the trimmed result at
