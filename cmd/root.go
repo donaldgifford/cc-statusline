@@ -6,6 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/donaldgifford/cc-statusline/internal/color"
 	"github.com/donaldgifford/cc-statusline/internal/config"
 	"github.com/donaldgifford/cc-statusline/internal/statusline"
 )
@@ -43,6 +44,10 @@ var rootCmd = &cobra.Command{
 		if experimentalUsageAPI {
 			cfg.Experimental.UsageAPI = true
 		}
+
+		// Set color state once before rendering.
+		enabled := cfg.ColorEnabled()
+		color.SetEnabled(&enabled)
 
 		return statusline.RunWithConfig(cmd.InOrStdin(), cmd.OutOrStdout(), cfg)
 	},

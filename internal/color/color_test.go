@@ -7,7 +7,10 @@ import (
 )
 
 func TestColorize(t *testing.T) {
-	t.Parallel()
+	// Not parallel: mutates global color state.
+	enabled := true
+	color.SetEnabled(&enabled)
+	t.Cleanup(func() { color.SetEnabled(nil) })
 
 	tests := []struct {
 		name  string
@@ -41,14 +44,8 @@ func TestColorize(t *testing.T) {
 		},
 	}
 
-	// Force color enabled for these tests.
-	enabled := true
-	color.SetEnabled(&enabled)
-	t.Cleanup(func() { color.SetEnabled(nil) })
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
 			got := color.Colorize(tt.text, tt.codes...)
 			if got != tt.want {
 				t.Errorf("Colorize() = %q, want %q", got, tt.want)
@@ -58,8 +55,7 @@ func TestColorize(t *testing.T) {
 }
 
 func TestColorizeDisabled(t *testing.T) {
-	t.Parallel()
-
+	// Not parallel: mutates global color state.
 	disabled := false
 	color.SetEnabled(&disabled)
 	t.Cleanup(func() { color.SetEnabled(nil) })
@@ -70,25 +66,9 @@ func TestColorizeDisabled(t *testing.T) {
 	}
 }
 
-func TestEnabledDefault(t *testing.T) {
-	t.Parallel()
-
-	// Reset to default behavior.
-	color.SetEnabled(nil)
-	// Without NO_COLOR set, Enabled() should return true.
-	// We can't test NO_COLOR env var reliably in parallel tests
-	// since env vars are process-global, but we can test SetEnabled.
-	enabled := true
-	color.SetEnabled(&enabled)
-	t.Cleanup(func() { color.SetEnabled(nil) })
-
-	if !color.Enabled() {
-		t.Error("Enabled() should return true when SetEnabled(true)")
-	}
-}
-
 func TestSetEnabledToggle(t *testing.T) {
-	t.Parallel()
+	// Not parallel: mutates global color state.
+	t.Cleanup(func() { color.SetEnabled(nil) })
 
 	disabled := false
 	color.SetEnabled(&disabled)
@@ -103,4 +83,5 @@ func TestSetEnabledToggle(t *testing.T) {
 	}
 
 	color.SetEnabled(nil)
+	// After reset, depends on NO_COLOR env var. Don't assert value.
 }

@@ -13,13 +13,15 @@ import (
 	"github.com/donaldgifford/cc-statusline/internal/statusline"
 )
 
-func init() {
+func disableColor(t *testing.T) {
+	t.Helper()
 	disabled := false
 	color.SetEnabled(&disabled)
+	t.Cleanup(func() { color.SetEnabled(nil) })
 }
 
 func TestRendererSingleLine(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	cfg := render.Config{
 		Lines:     [][]string{{"model", "context"}},
@@ -46,7 +48,7 @@ func TestRendererSingleLine(t *testing.T) {
 }
 
 func TestRendererMultiLine(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	cfg := render.Config{
 		Lines: [][]string{
@@ -82,7 +84,7 @@ func TestRendererMultiLine(t *testing.T) {
 }
 
 func TestRendererSegmentOrder(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	cfg := render.Config{
 		Lines:     [][]string{{"context", "model"}},
@@ -109,7 +111,7 @@ func TestRendererSegmentOrder(t *testing.T) {
 }
 
 func TestRendererEmptySegmentsOmitted(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	cfg := render.Config{
 		Lines:     [][]string{{"model", "vim", "context"}},
@@ -118,7 +120,6 @@ func TestRendererEmptySegmentsOmitted(t *testing.T) {
 	}
 	r := render.New(cfg, segments.All())
 
-	// No vim data, so vim segment should be omitted.
 	data := &model.StatusData{
 		Model:         model.ModelInfo{DisplayName: "Opus"},
 		ContextWindow: &model.ContextWindow{UsedPercentage: intPtr(50)},
@@ -137,7 +138,7 @@ func TestRendererEmptySegmentsOmitted(t *testing.T) {
 }
 
 func TestRendererUnknownSegmentSkipped(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	cfg := render.Config{
 		Lines:     [][]string{{"model", "nonexistent", "context"}},
@@ -164,7 +165,7 @@ func TestRendererUnknownSegmentSkipped(t *testing.T) {
 }
 
 func TestRunEndToEnd(t *testing.T) {
-	t.Parallel()
+	disableColor(t)
 
 	input := `{
 		"model": {"id": "claude-opus-4-6", "display_name": "Opus 4.6"},
@@ -179,7 +180,6 @@ func TestRunEndToEnd(t *testing.T) {
 	}
 
 	got := strings.TrimSpace(buf.String())
-	// Should contain model and context.
 	if !strings.Contains(got, "Opus 4.6") {
 		t.Errorf("output should contain model name, got %q", got)
 	}

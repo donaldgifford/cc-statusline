@@ -4,6 +4,7 @@ package color
 import (
 	"os"
 	"strings"
+	"sync/atomic"
 )
 
 // ANSI escape code constants.
@@ -43,9 +44,8 @@ const (
 	BgWhite   = "\033[47m"
 )
 
-// noColor caches the result of the NO_COLOR check.
-// Set via SetEnabled for testing and --no-color flag.
-var noColor *bool
+// Color override state: 0=check env, 1=force enabled, 2=force disabled.
+var colorOverride atomic.Int32
 
 // Colorize wraps text with the given ANSI codes and appends a reset.
 // When color is disabled, returns the text unmodified.
@@ -65,20 +65,27 @@ func Colorize(text string, codes ...string) string {
 // Enabled returns true if color output is allowed.
 // Color is disabled when NO_COLOR is set (any value) or SetEnabled(false) was called.
 func Enabled() bool {
-	if noColor != nil {
-		return !*noColor
+	switch colorOverride.Load() {
+	case 1:
+		return true
+	case 2:
+		return false
+	default:
+		_, set := os.LookupEnv("NO_COLOR")
+		return !set
 	}
-	_, set := os.LookupEnv("NO_COLOR")
-	return !set
 }
 
 // SetEnabled overrides color detection. Pass false to disable, true to enable.
 // Passing nil resets to environment-based detection.
 func SetEnabled(enabled *bool) {
 	if enabled == nil {
-		noColor = nil
+		colorOverride.Store(0)
 		return
 	}
-	v := !*enabled
-	noColor = &v
+	if *enabled {
+		colorOverride.Store(1)
+	} else {
+		colorOverride.Store(2)
+	}
 }

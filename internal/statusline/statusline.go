@@ -4,7 +4,6 @@ package statusline
 import (
 	"io"
 
-	"github.com/donaldgifford/cc-statusline/internal/color"
 	"github.com/donaldgifford/cc-statusline/internal/config"
 	"github.com/donaldgifford/cc-statusline/internal/model"
 	"github.com/donaldgifford/cc-statusline/internal/render"
@@ -19,6 +18,7 @@ func Run(in io.Reader, out, _ io.Writer) error {
 
 // RunWithConfig reads session JSON and renders the statusline using the
 // provided configuration. If cfg is nil, the default config is used.
+// Callers should set color.SetEnabled before calling this function.
 func RunWithConfig(in io.Reader, out io.Writer, cfg *config.Config) error {
 	data, err := model.ReadStatus(in)
 	if err != nil {
@@ -28,9 +28,6 @@ func RunWithConfig(in io.Reader, out io.Writer, cfg *config.Config) error {
 	if cfg == nil {
 		cfg = config.Default()
 	}
-
-	enabled := cfg.ColorEnabled()
-	color.SetEnabled(&enabled)
 
 	rcfg := render.Config{
 		Lines:                cfg.ResolvedLines(),

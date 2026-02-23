@@ -272,7 +272,7 @@ features. Default output matches the current bash statusline:
       test JSON via `exec.Command`, assert formatted output on stdout. This
       catches issues that unit tests miss (ldflags, Cobra wiring, stdin/stdout
       plumbing, config file resolution).
-- [ ] **1.22: Tag and release v0.1.0.** Verify `make release-local` produces
+- [x] **1.22: Tag and release v0.1.0.** Verify `make release-local` produces
       working binaries for all platforms. Create the release via the existing
       goreleaser pipeline.
 
