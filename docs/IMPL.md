@@ -105,7 +105,7 @@ features. Default output matches the current bash statusline:
 
 #### 1A: Stdin Parsing
 
-- [ ] **1.1: Define stdin JSON types.** Create Go structs in
+- [x] **1.1: Define stdin JSON types.** Create Go structs in
       `internal/model/status.go` matching the full stdin JSON schema from
       [DATA_SOURCES.md](DATA_SOURCES.md). Use `*int` / `*float64` for nullable
       fields (`used_percentage`, `remaining_percentage`). Use pointer-to-struct
