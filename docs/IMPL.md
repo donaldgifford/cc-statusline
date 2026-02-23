@@ -312,7 +312,7 @@ and deduplication (D5, D6).
       Rotate when file exceeds 1MB (truncate and start fresh). Create cache dir
       with `0700`, log file with `0600`. Used by experimental features to log
       errors without polluting stdout.
-- [ ] **2.3: Implement the `err` fallback.** When an experimental segment's
+- [x] **2.3: Implement the `err` fallback.** When an experimental segment's
       `Render()` returns an error: substitute `err` (dim red) in the segment's
       position. Log the full error via 2.2. The rest of the statusline renders
       normally.

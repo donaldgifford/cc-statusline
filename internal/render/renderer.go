@@ -5,6 +5,8 @@ import (
 	"io"
 	"strings"
 
+	"github.com/donaldgifford/cc-statusline/internal/color"
+	"github.com/donaldgifford/cc-statusline/internal/errlog"
 	"github.com/donaldgifford/cc-statusline/internal/model"
 	"github.com/donaldgifford/cc-statusline/internal/render/theme"
 )
@@ -61,6 +63,10 @@ func (r *Renderer) Render(w io.Writer, data *model.StatusData) error {
 			}
 			text, err := seg.Render(data, r.theme)
 			if err != nil {
+				if seg.Source() != "stable" {
+					errlog.Log("segment %s: %v", name, err)
+					parts = append(parts, color.Colorize("err", color.Dim, color.FgRed))
+				}
 				continue
 			}
 			if text != "" {
