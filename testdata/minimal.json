@@ -1,0 +1,14 @@
+{
+  "session_id": "min-session-001",
+  "transcript_path": "/tmp/transcript.jsonl",
+  "cwd": "/tmp",
+  "model": {
+    "id": "claude-sonnet-4-20250514",
+    "display_name": "Sonnet 4"
+  },
+  "workspace": {
+    "current_dir": "/tmp",
+    "project_dir": "/tmp"
+  },
+  "version": "1.0.80"
+}
